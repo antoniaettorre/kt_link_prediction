@@ -1,0 +1,12 @@
+Wed, 28 Sep 2022 14:36:16 INFO     Analyzing results in data/gembs/assistments/TransE_l2/config0/result.tsv
+Wed, 28 Sep 2022 14:36:16 INFO     Test: test0
+Wed, 28 Sep 2022 14:36:16 INFO     GE Model: TransE_l2
+Wed, 28 Sep 2022 14:36:16 INFO     GE config for model: 0
+Wed, 28 Sep 2022 14:36:16 INFO     Settings: LIMIT=1, LIMIT_MODE=head
+Wed, 28 Sep 2022 14:36:21 INFO     Performance on final prediction task
+Wed, 28 Sep 2022 14:36:22 INFO     > AUC with norm-score: 0.7165490613537122
+Wed, 28 Sep 2022 14:36:22 INFO     > F1-scores: [0.54369646 0.73399748]
+Wed, 28 Sep 2022 14:36:22 INFO     > ACC: 0.6639156204193487
+Wed, 28 Sep 2022 14:36:22 INFO     > RECALL: 0.6752436194895591
+Wed, 28 Sep 2022 14:36:22 INFO     > PRECISION: 0.8039502762430939
+Wed, 28 Sep 2022 14:36:22 INFO     > BALANCED ACCURACY: 0.6571651376536486
