@@ -23,7 +23,7 @@ the file **requirements.txt**.
 Once your Python environment is ready, you can reproduce the experiments using the datasets provided in 
 **./data/datasets/assistments/** and the Knowledge Graph created starting from these data, which is located in 
 **./data/graphs/assistments/**.
-To reproduce the results of the experiments, you first to run the script **preprocess.py** which, using the 
+To reproduce the results of the experiments, first you have to run the script **preprocess.py** which, using the 
 configuration provided in **configs/assistments.py**, will create the proper directory structure and the files necessary
 for the computation of the embeddings and the later evaluation of the results.
 
@@ -33,13 +33,14 @@ to be used for the computation of the embeddings (see section "Computing Knowled
 * **./graphs/assistments/triples_possible.txt**: the file containing the list of all the possible triples whose score 
 we want to predict;
 * **./graphs/assistments/triples_possible.txt**: the file containing the list of all the real triples 
-(among the possible ones), which represents the ground truth for out evaluation.
+(among the possible ones), which represents the ground truth for our evaluation.
 
 Moreover, the subdirectory **./gembs/assistments/TransE_l2/config0** will be created to store the Graph Embeddings to 
 be used for link prediction (see section "Computing Knowledge Graph Embeddings" below).
 
 After the preprocessing, the KGEs need to be computed as illustrated in the following section
 ("Computing Knowledge Graph Embeddings").
+
 Once the KGEs are computed and stored in the correct directory (**./gembs/assistments/TransE_l2/config0**), the script 
 **map_transform_input.py** can be used to create the input files for the Link Prediction model.
 The script simply maps the triples in the file **./graphs/assistments/triples_possible.txt** to the numerical 
@@ -75,13 +76,14 @@ The input file **graph.txt** (located in **./data/graphs/assistments/**) contain
 in CSV format.
 The output files containing the KGEs of entities and relations are saved in the sub-directories
 **./ckpts/TransE_l2_assistments_0/** of your AWS DGL-KGE library location.
-These files need to be moved in the corresponding directories **./datasets/gembs/assistments/TransE_l2/config0** 
+
+These files need to be moved in the corresponding directory **./datasets/gembs/assistments/TransE_l2/config0** 
 together with the two mapping files **entities.tsv** and **relations.tsv** which associate a numerical ID to each URI in
 the KG.
 
 ## Computing Link Prediction Scores
 
-To compute the Link Prediction scores, we need to copy the input files generated at the previous step in the directory 
+To compute the Link Prediction scores, you will need to copy the input files generated at the previous step in the directory 
 containing the previously computed KGEs under the AWS DGL-KGE library location.
 The commands used for the computation of the scores are the following:
 
@@ -102,11 +104,13 @@ results of the Link Prediction through the script **eval_output.py**.
 The present approach and code can be used to predict students outcomes to questions in other KGs.
 To do so, a new configuration file must be created in the **./configs/** directory, containing the path and the functions 
 to use for this new KG.
+
 It is important to highlight that such KG must contain the complete description of the answers to be used as 
 "training set", including the results of such answers (correct or incorrect); while it must contain only the answer node
 properly linked to the corresponding student and question nodes, without the result of the answer, for the "test set".
 Once the KG is ready and the configuration file properly created, the results can be obtained through process 
 illustrated in section "Reproducing the experiments".
-Please note that experiments on the same Knowledge Graph with different KGE models or different settings cn be simply 
-perfomed by changing the configuration file and running the scripts again.
+
+Please note that experiments on the same Knowledge Graph with different KGE models or different settings can be simply 
+performed by changing the configuration file and running the scripts again.
 
